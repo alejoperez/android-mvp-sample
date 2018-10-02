@@ -1,8 +1,10 @@
 package com.mvp.sample.splash
 
+import com.mvp.sample.base.IBaseView
+
 interface ISplashContract {
 
-    interface View {
+    interface View: IBaseView {
         fun goToNextScreen()
     }
 

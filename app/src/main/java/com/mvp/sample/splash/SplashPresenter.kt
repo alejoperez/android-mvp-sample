@@ -1,7 +1,9 @@
 package com.mvp.sample.splash
 
-class SplashPresenter: ISplashContract.Presenter {
+import com.mvp.sample.data.user.UserRepository
 
-    override fun isLoggedIn(): Boolean = true
+class SplashPresenter(private val view: ISplashContract.View): ISplashContract.Presenter {
+
+    override fun isLoggedIn(): Boolean = UserRepository.getInstance().isLoggedIn(view.getViewContext())
 
 }

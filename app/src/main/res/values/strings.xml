@@ -14,5 +14,10 @@
     <string name="activity_register">Register</string>
     <!-- Activity Titles END -->
 
+    <!-- Errors START-->
+    <string name="error_network">Network Error</string>
+    <string name="error_invalid_credentials">Invalid Credentials</string>
+    <!-- Errors END-->
+
 
 </resources>

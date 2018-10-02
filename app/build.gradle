@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'realm-android'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -27,14 +29,17 @@ android {
     productFlavors {
 
         dev {
+            buildConfigField "String", "SERVER_URL", '"https://private-5bf26-yellowmock.apiary-mock.com/"'
             applicationIdSuffix ".dev"
         }
 
         stg {
+            buildConfigField "String", "SERVER_URL", '"https://private-5bf26-yellowmock.apiary-mock.com/"'
             applicationIdSuffix ".stg"
         }
 
         prod {
+            buildConfigField "String", "SERVER_URL", '"https://private-5bf26-yellowmock.apiary-mock.com/"'
             applicationIdSuffix ".prod"
         }
 
@@ -64,5 +69,12 @@ dependencies {
     implementation "com.android.support:design:$android_support_v7_version"
     implementation "com.android.support:appcompat-v7:$android_support_v7_version"
     implementation "com.android.support.constraint:constraint-layout:$contraint_layout_version"
+
+    //Web Services
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
 
 }

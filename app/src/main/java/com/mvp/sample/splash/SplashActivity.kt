@@ -12,7 +12,7 @@ private const val SPLASH_DELAY = 2000L
 
 class SplashActivity : BaseActivity(), ISplashContract.View {
 
-    private val presenter by lazy { SplashPresenter() }
+    private val presenter by lazy { SplashPresenter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
