@@ -17,7 +17,16 @@
     <!-- Errors START-->
     <string name="error_network">Network Error</string>
     <string name="error_invalid_credentials">Invalid Credentials</string>
+    <string name="error_invalid_email">Invalid Email Format</string>
+    <string name="error_empty_password">Empty Password</string>
     <!-- Errors END-->
+
+    <!-- Login START-->
+    <string name="login_title">Login</string>
+    <string name="login_email_hint">E-mail</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <!-- Login END-->
 
 
 </resources>
