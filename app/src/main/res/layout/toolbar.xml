@@ -5,5 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
-    app:titleTextColor="@color/colorTextIcons"
+    android:theme="@style/ToolbarTheme"
     app:popupTheme="@style/AppTheme.PopupOverlay" />
