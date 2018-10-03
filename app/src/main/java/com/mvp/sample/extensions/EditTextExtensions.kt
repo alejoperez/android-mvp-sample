@@ -6,14 +6,14 @@ import android.text.InputFilter
 private val noWhiteSpaces: InputFilter = InputFilter { string, start, end, _, _, _ ->
     (start until end)
             .filter { Character.isSpaceChar(string[it]) }
-            .forEach { return@InputFilter "" }
+            .forEach { _ -> return@InputFilter "" }
     null
 }
 
 private val onlyNumbers: InputFilter = InputFilter { string, start, end, _, _, _ ->
     (start until end)
             .filterNot { Character.isDigit(string[it]) }
-            .forEach { return@InputFilter "" }
+            .forEach { _ -> return@InputFilter "" }
     null
 }
 

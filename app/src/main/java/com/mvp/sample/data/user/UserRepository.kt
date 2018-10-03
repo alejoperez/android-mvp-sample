@@ -58,6 +58,8 @@ class UserRepository private constructor(
 
     override fun isLoggedIn(context: Context): Boolean = localDataSource.isLoggedIn(context)
 
+    override fun logout(context: Context) = localDataSource.logout(context)
+
     interface IRegisterListener : IBaseSourceListener {
         fun onRegisterSuccess(response: RegisterResponse?)
         fun onRegisterFailure()

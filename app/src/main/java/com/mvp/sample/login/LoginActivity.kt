@@ -11,12 +11,11 @@ import org.jetbrains.anko.startActivity
 
 class LoginActivity : BaseActivity(), ILoginContract.View {
 
-    private val presenter: LoginPresenter by lazy { LoginPresenter(this) }
+    private val presenter by lazy { LoginPresenter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        setToolbarTitle(R.string.login_title)
 
         etEmail.filters = getWhiteSpaceFilters()
         etPassword.filters = getWhiteSpaceFilters()
@@ -46,7 +45,7 @@ class LoginActivity : BaseActivity(), ILoginContract.View {
 
     override fun onLoginSuccess() {
         startActivity<MainActivity>()
-        finish()
+        finishAffinity()
     }
 
     override fun onLoginFailure() = showAlert(R.string.error_invalid_credentials)

@@ -8,17 +8,13 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Activity Titles START -->
-    <string name="activity_main">MVP - Sample</string>
-    <string name="activity_login">Login</string>
-    <string name="activity_register">Register</string>
-    <!-- Activity Titles END -->
-
     <!-- Errors START-->
     <string name="error_network">Network Error</string>
     <string name="error_invalid_credentials">Invalid Credentials</string>
     <string name="error_invalid_email">Invalid Email Format</string>
     <string name="error_empty_password">Empty Password</string>
+    <string name="error_user_already_exists">User already exists</string>
+    <string name="error_name_empty">Name empty</string>
     <!-- Errors END-->
 
     <!-- Login START-->
@@ -27,6 +23,22 @@
     <string name="login_password_hint">Password</string>
     <string name="login_button">Login</string>
     <!-- Login END-->
+
+    <!-- Register START-->
+    <string name="register_title">Register</string>
+    <string name="register_name_hint">Name</string>
+    <string name="register_email_hint">E-mail</string>
+    <string name="register_password_hint">Password</string>
+    <string name="register_button">Register</string>
+    <string name="register_go_to_login"><u>Go to Login Screen</u></string>
+    <!-- Register END-->
+
+    <!-- Menu START-->
+    <string name="menu_places">Places</string>
+    <string name="menu_posts">Posts</string>
+    <string name="menu_photos">Photos</string>
+    <string name="menu_logout">Log out</string>
+    <!-- Menu END-->
 
 
 </resources>

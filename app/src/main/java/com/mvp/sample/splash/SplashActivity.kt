@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.os.Handler
 import com.mvp.sample.R
 import com.mvp.sample.base.BaseActivity
-import com.mvp.sample.login.LoginActivity
 import com.mvp.sample.main.MainActivity
+import com.mvp.sample.register.RegisterActivity
 import org.jetbrains.anko.startActivity
 
 private const val SPLASH_DELAY = 2000L
@@ -24,7 +24,7 @@ class SplashActivity : BaseActivity(), ISplashContract.View {
         if (presenter.isLoggedIn()) {
             startActivity<MainActivity>()
         } else {
-            startActivity<LoginActivity>()
+            startActivity<RegisterActivity>()
         }
         finish()
     }
