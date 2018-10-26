@@ -6,6 +6,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import com.mvp.sample.base.BaseActivity
 import com.mvp.sample.R
 import com.mvp.sample.photos.PhotosFragment
@@ -21,7 +22,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setToolbarTitle(R.string.app_name)
+        initView()
+        replaceFragment(PlacesFragment.newInstance(),R.id.main_content_view, PlacesFragment.TAG)
+    }
 
+    private fun initView() {
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
@@ -30,7 +35,15 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         navView.setNavigationItemSelectedListener(this)
         navView.menu.getItem(0).isChecked = true
 
-        replaceFragment(PlacesFragment.newInstance(),R.id.main_content_view, PlacesFragment.TAG)
+        loadUserInfo()
+    }
+
+    private fun loadUserInfo() {
+        val user = presenter.getUser()
+        val textViewUserName = navView.getHeaderView(0).findViewById(R.id.tvUserName) as TextView
+        val textViewUserEmail = navView.getHeaderView(0).findViewById(R.id.tvUserEmail) as TextView
+        textViewUserName.text = user?.name
+        textViewUserEmail.text = user?.email
     }
 
     override fun onBackPressed() {
