@@ -1,26 +1,21 @@
 package com.mvp.sample.data
 
 import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
 
-class User(val id: String,
-           val name: String,
-           val email: String): RealmObject()
+open class User(@PrimaryKey var id: Long = 0L,
+                var name: String = "",
+                var email: String = ""): RealmObject()
 
-class Place(val id: String,
-            val companyName: String,
-            val address: String,
-            val lat: Double,
-            val lon: Double): RealmObject()
-
-
-class Post(val userId: String,
-            val id: String,
-            val title: String,
-            val body: String): RealmObject()
+open class Place(@PrimaryKey var id: Long = 0L,
+            var companyName: String = "",
+            var address: String = "",
+            var lat: Double = 0.0,
+            var lon: Double = 0.0): RealmObject()
 
 
-class Photo(val albumId: String,
-            val id: String,
-            val title: String,
-            val url: String,
-            val thumbnailUrl: String): RealmObject()
+open class Photo(@PrimaryKey var id: Long = 0L,
+            var albumId: String = "",
+            var title: String = "",
+            var url: String = "",
+            var thumbnailUrl: String = ""): RealmObject()

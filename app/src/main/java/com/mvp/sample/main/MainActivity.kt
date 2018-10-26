@@ -1,7 +1,6 @@
 package com.mvp.sample.main
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -9,8 +8,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.mvp.sample.base.BaseActivity
 import com.mvp.sample.R
+import com.mvp.sample.photos.PhotosFragment
+import com.mvp.sample.places.PlacesFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, IMainContract.View {
@@ -22,17 +22,15 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setContentView(R.layout.activity_main)
         setToolbarTitle(R.string.app_name)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
-
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+        navView.menu.getItem(0).isChecked = true
+
+        replaceFragment(PlacesFragment.newInstance(),R.id.main_content_view, PlacesFragment.TAG)
     }
 
     override fun onBackPressed() {
@@ -48,26 +46,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_places -> {
-
+                replaceFragment(PlacesFragment.newInstance(),R.id.main_content_view, PlacesFragment.TAG)
             }
             R.id.nav_photos -> {
-
-            }
-            R.id.nav_posts -> {
-
+                replaceFragment(PhotosFragment.newInstance(),R.id.main_content_view, PhotosFragment.TAG)
             }
             R.id.nav_logout -> {
                 presenter.logout()

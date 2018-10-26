@@ -2,7 +2,6 @@ package com.mvp.sample.webservice
 
 import com.mvp.sample.data.Photo
 import com.mvp.sample.data.Place
-import com.mvp.sample.data.Post
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -18,9 +17,6 @@ interface IApi {
 
     @GET("places")
     fun getPlaces(): Call<List<Place>>
-
-    @GET("posts")
-    fun getPosts(): Call<List<Post>>
 
     @GET("photos")
     fun getPhotos(): Call<List<Photo>>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">mvp-sample</string>
 
+    <string name="accept">Accept</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -15,6 +16,8 @@
     <string name="error_empty_password">Empty Password</string>
     <string name="error_user_already_exists">User already exists</string>
     <string name="error_name_empty">Name empty</string>
+    <string name="error_loading_places">We could not load places</string>
+    <string name="error_loading_photos">We could not load photos</string>
     <!-- Errors END-->
 
     <!-- Login START-->
@@ -35,10 +38,12 @@
 
     <!-- Menu START-->
     <string name="menu_places">Places</string>
-    <string name="menu_posts">Posts</string>
     <string name="menu_photos">Photos</string>
     <string name="menu_logout">Log out</string>
     <!-- Menu END-->
 
+    <!-- Places START-->
+    <string name="places_random_message">Navigating to random place&#8230;</string>
+    <!-- Places END-->
 
 </resources>

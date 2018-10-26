@@ -14,7 +14,9 @@ class UserLocalDataSource : IUserDataSource {
     override fun getUser(): User? = Realm.getDefaultInstance().where(User::class.java).findFirst()
 
     override fun saveUser(user: User) {
-        Realm.getDefaultInstance().executeTransactionAsync { realm: Realm -> realm.insertOrUpdate(user) }
+        Realm.getDefaultInstance().executeTransactionAsync{
+            realm -> realm.insertOrUpdate(user)
+        }
     }
 
     override fun logout(context: Context) = PreferenceManager<String>(context).putPreference(PreferenceManager.ACCESS_TOKEN,"")

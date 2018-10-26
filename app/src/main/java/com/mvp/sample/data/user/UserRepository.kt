@@ -31,6 +31,7 @@ class UserRepository private constructor(
             override fun onLoginSuccess(response: LoginResponse?) {
                 response?.let {
                     PreferenceManager<String>(context).putPreference(PreferenceManager.ACCESS_TOKEN,response.accessToken)
+                    localDataSource.saveUser(response.toUser())
                     listener.onLoginSuccess(response)
                 }
             }
@@ -46,6 +47,7 @@ class UserRepository private constructor(
             override fun onRegisterSuccess(response: RegisterResponse?) {
                 response?.let {
                     PreferenceManager<String>(context).putPreference(PreferenceManager.ACCESS_TOKEN, response.accessToken)
+                    localDataSource.saveUser(response.toUser())
                     listener.onRegisterSuccess(response)
                 }
             }
